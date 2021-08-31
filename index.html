@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>www.alex.com</title>
+  <style>
+    #body {
+      background-image:url("tara.webp");
+      background-color: #fff;
+      background-blend-mode: multiply;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      /* animation: day 4s infinite alternate; */
+    }
+
+    @keyframes day {
+      0% {
+        color: black;
+        background-color: white;
+        text-shadow: 3px 3px 5px black;
+      }
+
+      50% {
+        background-color: skyblue;
+        color: blueviolet;
+        text-shadow: 3px 3px 5px blue;
+      }
+
+      100% {
+        background-color: blue;
+        color: white;
+        text-shadow: 3px 3px 5px white;
+      }
+    }
+
+    #hedding {
+      color: red;
+      font-family: cursive;
+      font-size: 45px;
+    }
+
+    input {
+      width: 400px;
+      height: 50px;
+      font-size: 32px;
+      box-shadow: 3px 3px 10px black;
+    }
+
+    #hit {
+      position: relative;
+      right: -6px;
+      height: 55px;
+      width: 150px;
+      font-size: 32px;
+    }
+
+    #game {
+      font-size: 40px;
+    }
+
+    #help {
+      display: none;
+    }
+#menu{
+  height: 0px;
+  width: 0px;
+  font-size: 100px;
+  color: white;
+  cursor: pointer;
+}
+#menu_item{
+  position: absolute;
+  bottom: 35px;
+  left: -10px;
+  height: 500px;
+  width: 50px;
+  border: blue;
+  background-color: yellow;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  box-shadow: 9px 9px 15px black;
+  display: none;
+  animation: incress 1s 1;
+}
+li{
+  position: relative;
+  width: 100%;
+  height: 11%;
+  border: 2px solid black;
+  background-color: crimson;
+  cursor: pointer;
+  /* margin-bottom: 5px; */
+}
+li:hover{
+  color: crimson;
+  background: blue;
+  animation:fs 4s infinite alternate;
+}
+.au:hover{
+  animation: fs2 4s infinite alternate;
+}
+#floot:hover{
+  animation: fc 2s infinite alternate;
+}
+/* css anime */
+@keyframes incress{
+  0%{width: 50px;}
+  100%{width: 200px;}
+}
+@keyframes decress{
+  0%{width: 200px;}
+  100%{width: 0px;display: none;}
+}
+@keyframes rotate{
+  0%{transform: rotateZ(0deg);}
+  100%{transform: rotateZ(360deg);}
+}
+@keyframes r2{
+  0%{transform: rotateZ(360deg);}
+  100%{transform: rotateZ(0deg);}
+}
+@keyframes boom{
+0%{transform: rotateZ(360deg);}
+100%{transform: rotateZ(0deg);}
+}
+@keyframes boom2{
+0%{transform: rotateZ(0deg);}
+100%{transform: rotateZ(360deg);}
+}
+@keyframes rotate2{
+  0%{transform: rotateZ(360deg);}
+  100%{transform: rotateZ(0deg);}
+}
+@keyframes fs{
+  0%{font-size: medium;}
+  100%{font-size: 35px; font-style: italic;}
+}
+@keyframes fs2{
+  0%{font-size: medium;}
+  100%{font-size: 25px; font-style: italic;}
+}
+@keyframes fc{
+  0%{color: red;}
+  100%{color: green;}
+}
+@keyframes on{
+  0%{opacity: 0;}
+  100%{opacity: 100;}
+}
+
+
+
+
+#floot{
+ position: relative;
+ left: 140px;
+ top: 41px;
+ height: 42px;
+ width: 44px;
+ font-size: 35px;
+ color: red;
+ background-color: green;
+ display: none;
+}
+#login{
+  position: absolute;
+}
+heading_2{
+  
+}
+  </style>
+  <link rel="shortcut icon" href="city.jpg" type="image/x-icon">
+</head>
+
+<body id="body" ondblclick="talk('are you a robot?')">
+  <!-- login -->
+  <div id="login">
+ <h2 id="hedding_2">login</h2>
+  </div>
+
+  <!-- full_web -->
+  <div id="full_web">
+  <!-- header -->
+  <header>
+    <div id="menu" onclick="item()">
+      &equiv;
+    </div>
+    <button id="floot" onclick="dn()">&times;</button>
+    <div id="menu_item">
+      <li>histroy</li>
+      <li onclick="">edit</li>
+      <li>Login</li>
+      <li>setting</li>
+      <li class="au" onclick="talk('i am a programmer ,and, my name is rakib sardar, my age is eleven')">about me</li>
+      <li>web info</li>
+      <li class="au">alex talk list</li>
+      <li>report</li>
+      <li class="au">alex maneger</li>
+    </div>
+  </header>
+
+  <!-- main item -->
+  <center>
+    <h1 id="hedding"><img src="icon.png" alt="robot"height="150" width="150" style="filter: fliph;">ALEX</h1>
+  </center>
+
+  <br><br>  <br>
+  <center>
+    <!-- main sarch -->
+    <button onclick="work()" id="hit">tell</button>
+
+    <input type="text" autocomplete="username" id="type" onsubmit="work()">
+
+    <datalist>alex</datalist>
+ <img src="android.png" alt="sorry chck your connction" style="display: none; " id="img">
+
+    <p id="game"></p>
+  </center>
+  </div>
+  <!-- javascript -->
+  <script>
+ 
+//menu displaying program
+function item(){
+  var mn= document.getElementById("menu");
+  mn.style.animation="rotate 2s 1";
+  var a=document.getElementById("menu_item");
+  if(a.style.display="none"){
+    a.style.display="block";
+    a.style.width="200px";
+  }else{
+    a.style.display="none";
+  }
+  setTimeout(rar, 900);
+     }
+     function rar(){
+      var mnu= document.getElementById("menu");
+      mnu.style.display="none";
+      var mnu2=document.getElementById("floot");
+      mnu2.style.display="block";
+      mnu2.style.animation="boom 2s 1";
+     }
+
+
+//menu hiding programe
+function dn(){
+  var mnu3=document.getElementById("floot");
+  mnu3.style.display="block";
+      mnu3.style.animation="boom2 3s 1";
+      var mnuk2= document.getElementById("menu");
+  mnuk2.style.animation="rotate2 3s 1";
+  var mn4= document.getElementById("menu").style.animation="r2 2s 1";
+  var mn2= document.getElementById("menu_item").style.animation="decress 2s 1";
+  setTimeout(hi, 2000);
+  setTimeout(he, 
+  3000);
+}
+function he(){
+  var mnu4=document.getElementById("floot");
+  mnu4.style.display="none";
+  var mnuk= document.getElementById("menu");
+  mnuk.style.display="block";
+}
+function hi(){
+  var mn3= document.getElementById("menu_item").style.display="none";
+}
+//main talk programe
+    function talk(talk){
+      window.speechSynthesis.speak(new SpeechSynthesisUtterance(talk));
+    }
+    
+    function work() {
+      var game = document.getElementById("type");
+      var at = game.value;
+      // switch case
+      var bg = new Audio("bg.mp3");
+      var bgs=new Audio("medi.mp3");
+      var eng= new Audio("eng.mp3");
+
+      switch (at) {
+        case "hello":
+          var game = document.getElementById("game").innerHTML = "<br>hi";
+          talk("yeah i lissening tell me how can i help you")
+          break;
+
+        case "goat":
+          var gamer = document.getElementById("game").innerHTML += "<br>baa baa baa baa baa!!!";
+          talk("ba ba ba!!!")
+          break;
+
+        case "bomb":
+          var game = document.getElementById("game").innerHTML += "<br>boom boom boom boom boom boom!!!!!";
+          talk("bomb bomb bomb bomb")
+          break;
+
+        case "how are you":
+          var game = document.getElementById("game").innerHTML += "<br>i am fine and you?";
+          talk("i am fine, and you?")
+          break;
+
+        case "same":
+          talk("thanks")
+        break;
+
+        case "help me":
+          var game = document.getElementById("game").innerHTML += "<br>how can i help you?";
+          talk("tell me how can i help you?")
+          break;
+
+        case "oh no":
+          var game = document.getElementById("game").innerHTML += "<br>any problem";
+          talk("any problem??")
+          break;
+
+        case "tell me a joke":
+          var game = document.getElementById("game").innerHTML += "<br>ha ha ha i don't know any joke";
+          talk("ha ha ha i don't know any joke")
+          break;
+        case "i slap you":
+          var game = document.getElementById("game").innerHTML += "<br>sorry whats my bug";
+          talk("whats my bug")
+          break;
+
+        case "abcd":
+          var game = document.getElementById("game").innerHTML += "<br>english letter";
+          talk("its english letter")
+          break;
+        case "alex play bengali song":
+          bg.play();
+          talk("i playing a bengali song")
+          break;
+
+        case "alex play a sound":
+          bgs.play()
+         break;
+
+        case "alex play a english song":
+        eng.play()
+        break;
+
+        case "alex music off":
+          bg.pause()
+          talk("sorry this fetures is not aviable")
+          break;
+
+          case "time":
+            talk("time is "+ Date())
+          function time(){
+            var game = document.getElementById("game").innerHTML = new Date().getHours()+":"+new Date().getMinutes();
+          }
+          setInterval(time, 1000);
+          break;
+
+          case "android image":
+        var sa= document.getElementById("img").style.display="block";
+        talk("it is anroid image")
+          break;
+
+          case "hide android image":
+          var sda= document.getElementById("img").style.display="none";
+          talk("hid android image")
+          break;
+
+          case "go youtube":
+          window.location.assign("https://youtube.com/")
+          talk("going youtube")
+          break;
+          
+          case "go map":
+          window.location.assign("https://maps.google.com/")
+          talk("going google map")
+          break;
+         
+          case "go google translate":
+         window.location.assign("https://translate.google.com/")
+         talk('going google translate')
+          break;
+          
+          case "go google":
+          window.location.assign("https://www.google.com/")
+          talk('going google')
+          break;
+          
+          case "tell me a paragraph":
+          talk("its a paragraph. hi frand, give me a pen for write.")
+          break;
+          
+          case "tell me what i say":
+
+          talk("you say "+at)
+          break;
+
+          case "change background":
+
+          var io= document.getElementById("body").style.backgroundImage="plugin.webp";
+          talk("i changing background")
+          break;
+
+        case "android":
+          talk("android is google product")
+        break;
+         
+         case "go w3school":
+          window.location.assign("")
+          talk("one miniate, i go w3schools")
+          break;
+
+          case "web secure":
+          talk("the web is very secure. are you use this web?")
+            ;
+          break;
+
+          case "tell me a lecture":
+          talk("all time, live a honest man")
+          break;
+
+          case "hi":
+          talk("hello?")
+          break;
+
+          case "i don't like you":
+          talk("but why?")
+          break;
+
+          case "exit":
+          talk("good bye,")
+          break;
+
+          case "who make this website":
+          talk("mister rakib sardar, make this website");
+          break;
+
+          case "no":
+          talk("thanks god, i think you are a robot")
+          break;
+        
+          default:
+          var game = document.getElementById("game").innerHTML += "<br>i don't understand what you say";
+          window.speechSynthesis.speak(new SpeechSynthesisUtterance('i don\'t understand what you say'));
+          break;
+        }}
+  </script>
+</body>
+
+</html>
